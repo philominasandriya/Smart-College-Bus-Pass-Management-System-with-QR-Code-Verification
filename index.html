@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNGCE SMART BUS </title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            --primary: #1A2E6B;
+            --primary-hover: #12214f;
+            --accent: #2d6a4f;
+            --bg-main: #fcfcfc;
+            --bg-card: #ffffff;
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main Navigation Header matching registration page style */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e5e7eb;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+        }
+
+        .btn-urgent {
+            background: #2d6a4f;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: white !important;
+            font-weight: 600;
+        }
+        .btn-urgent:hover {
+            background: #23523d;
+        }
+
+        /* Split Hero Section */
+        .hero {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            padding: 5rem 5%;
+            background-color: #f4f6f4;
+            gap: 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-action {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            transition: background 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .btn-action:hover {
+            background: var(--primary-hover);
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: 420px;
+            background-color: #d1d5db;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+            border: 4px solid white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem 5%;
+            background: var(--primary);
+            color: white;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 5%;
+                text-align: center;
+            }
+            .hero-content p, .hero-actions {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Header -->
+    <header>
+        <div class="brand-container">
+            <a href="#" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                <img src="Emblem.jpg" alt="SNGCE Emblem" style="height: 40px; width: auto; object-fit: contain;">
+                <span style="color: white; font-weight: bold; font-size: 0.95rem; letter-spacing: 0.05em;">SNGCE BUS PASS</span>
+            </a>
+        </div>
+        <nav>
+            <a href="login.html">Login</a>
+            <a href="About us.html">About Us</a>
+            <a href="Bus route.php">Bus Route</a>
+            <a href="Contact.html">Contact</a>
+            <a href="urgent_pass.php">Urgent Bus Pass</a>
+        </nav>
+    </header>
+
+    <!-- Split Hero Section -->
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Smart College Bus Pass</h1>
+            <p>Your centralized platform for secure digital bus passes, real-time QR code verification, and seamless campus transit management.</p>
+            <div class="hero-actions">
+                <a href="login.html" class="btn-action">Start your journey</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="College photo.jpeg" alt="College Campus" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Smart College Bus Pass Management System. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

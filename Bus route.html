@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Routes & Fee Structure - Smart College Bus Pass Management System</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#F4F6F9] font-sans m-0 p-0 min-h-screen flex flex-col justify-between">
+
+    <!-- Header with Emblem on Left and Home Button on Right -->
+    <header class="w-full bg-[#1A2E6B] px-6 py-4 flex justify-between items-center shadow-md">
+        <!-- Emblem / Logo on Left -->
+        <div class="flex items-center space-x-3">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="Emblem.jpg" alt="SNGCE Emblem" class="h-10 w-auto object-contain rounded">
+                <span class="text-white font-bold text-sm tracking-wider hidden sm:inline">SNGCE BUS PASS</span>
+            </a>
+        </div>
+
+        <!-- Home Button on Right -->
+        <a href="index.html" class="border border-white/40 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white hover:text-[#1A2E6B] transition shadow-sm">
+            Home
+        </a>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-10 space-y-12">
+        
+        <!-- Page Title Section -->
+        <div class="text-center">
+            <h1 class="text-3xl font-bold text-[#1A2E6B]">Bus Routes & Fee Structure</h1>
+            <p class="text-gray-500 text-xs tracking-wider uppercase mt-1">Academic Year 2026-2027 (Odd Semester)</p>
+        </div>
+
+        <!-- Section 1: Bus Routes Schedule -->
+        <div class="bg-white rounded-xl shadow-xl border border-[#1A2E6B]/15 overflow-hidden">
+            <div class="bg-[#1A2E6B] px-6 py-4">
+                <h2 class="text-white font-semibold text-base uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-bus"></i> Bus Routes & Timings
+                </h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-gray-100 text-[#1A2E6B] border-b border-gray-200 text-xs uppercase tracking-wider">
+                            <th class="p-4 font-semibold">Bus No. & Reg. No.</th>
+                            <th class="p-4 font-semibold">Starting Point</th>
+                            <th class="p-4 font-semibold">Route Details</th>
+                            <th class="p-4 font-semibold">Starting Time</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700">
+                        <!-- Bus 1 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">1<br><span class="text-xs text-gray-500">KL40E6327</span></td>
+                            <td class="p-4">Elamkunnapuzha</td>
+                            <td class="p-4">
+                                High court – Kaloor – Palarivattom – Padamughal – NGO Quarters – Kakkanad – Pallikkara – SNGCE
+                                <div class="text-xs text-amber-600 mt-1 font-medium">Note: Passengers boarding in between High Court and J N Stadium have to board the Tourist bus from St. Albans College; both the stops inclusive.</div>
+                            </td>
+                            <td class="p-4 font-semibold text-gray-800">07.15 am</td>
+                        </tr>
+                        <!-- Bus 3 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">3<br><span class="text-xs text-gray-500">KL40J1150</span></td>
+                            <td class="p-4">North Paravur</td>
+                            <td class="p-4">
+                                Mannan – Karumalloor – U C Collage –Kizhakkambalam- Pazhamthottam- SNGCE
+                                <div class="text-xs text-amber-600 mt-1 font-medium">Note: Passengers boarding from and up to U C College have to board the tourist bus from Paravur (Bus No.3)</div>
+                            </td>
+                            <td class="p-4 font-semibold text-gray-800">07.20 am</td>
+                        </tr>
+                        <!-- Bus 4 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">4<br><span class="text-xs text-gray-500">KL-40-J-1978</span></td>
+                            <td class="p-4">Angamaly</td>
+                            <td class="p-4">Angamaly jn-Vengoor – Kalady – Vallom – Perumbavoor – SNDP Junction – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.35 am</td>
+                        </tr>
+                        <!-- Bus 5 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">5<br><span class="text-xs text-gray-500">KL17B6354</span></td>
+                            <td class="p-4">Thalayolaparambu</td>
+                            <td class="p-4">Kanjiramattom – Mulanthuruthy Pallithazham – Vattakunnu – Eruveli – Chottanikkara – Thiruvankulam – Vadavucode – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.20 am</td>
+                        </tr>
+                        <!-- Bus 6 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">6<br><span class="text-xs text-gray-500">KL40J2946</span></td>
+                            <td class="p-4">Thodupuzha</td>
+                            <td class="p-4">Vazhakkulam – Muvattupuzha – Valakom – Kolenchery – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.30 am</td>
+                        </tr>
+                        <!-- Bus 7 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">7<br><span class="text-xs text-gray-500">KL-40-5927</span></td>
+                            <td class="p-4">Vaikom</td>
+                            <td class="p-4">Poothotta – Nadakkav – Puthiakavu – Kureekad – Thiruvankulam – Choondi – Pathamile – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.15 am</td>
+                        </tr>
+                        <!-- Bus 8 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">8<br><span class="text-xs text-gray-500">KL-40-6311</span></td>
+                            <td class="p-4">Palluruthy</td>
+                            <td class="p-4">Palluruthy – Aroor Church – Kumbalam – Marad – Khizhakkekotta – Karingachira – Hill Palace – Chithrappuzha – Karimugal – Kaninad – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.15 am</td>
+                        </tr>
+                        <!-- Bus 9 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">9<br><span class="text-xs text-gray-500">KL40A4058</span></td>
+                            <td class="p-4">Chullikkal</td>
+                            <td class="p-4">BOT – Pettah – S N Junction – Irumpanam – Karimugal – Kaninad – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.15 am</td>
+                        </tr>
+                        <!-- Bus 12 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">12<br><span class="text-xs text-gray-500">KL17AA0478</span></td>
+                            <td class="p-4">St. Alberts College</td>
+                            <td class="p-4">Kaloor – Palarivattom – Edappally – Kalamassery – HMT Junction – Vallathol – Thevakkal – Pookkattupady – Kizhakkambalam – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.30 am</td>
+                        </tr>
+                        <!-- Bus 14 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">14<br><span class="text-xs text-gray-500">KL17AA0443</span></td>
+                            <td class="p-4">Aluva Arogyalayam</td>
+                            <td class="p-4">Aluva Arogyalayam – Cochin Bank-Choondi – Pookkaattupadi – Kizhakkambalam – Pazhamthottam – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.50 am</td>
+                        </tr>
+                        <!-- Tourist Bus -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">49 Seater Tourist Bus<br><span class="text-xs text-gray-500">KL67B2270</span></td>
+                            <td class="p-4">Kadavanthra</td>
+                            <td class="p-4">Vyttila – Bypass-Mini Bypass- Puthiakave-Kuzhikkade- Thiruvankulam- Pathamile – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">7:20 AM</td>
+                        </tr>
+                        <!-- Traveller Paravur Kavala -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">26 Seater Traveller<br><span class="text-xs text-gray-500">KL667463</span></td>
+                            <td class="p-4">Paravur Kavala</td>
+                            <td class="p-4">Post Office –Pump junction-SOS- Pookkaattupadi – Kizhakkambalam - Pazhamthottam – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.45 am</td>
+                        </tr>
+                        <!-- Traveller Kottappady -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">26 Seater Traveller<br><span class="text-xs text-gray-500">KL33F9504</span></td>
+                            <td class="p-4">Kottappady</td>
+                            <td class="p-4">Odakkaly – Kuruppampady – Perumbavoor BOC – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.35 am</td>
+                        </tr>
+                        <!-- Traveller Koothattukulam -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">26 Seater Traveller<br><span class="text-xs text-gray-500">KL35D7746</span></td>
+                            <td class="p-4">Koothattukulam</td>
+                            <td class="p-4">Thirumaradi – Anjalpetti – Onakloor – Piravom – Kakkad – Choondi – Pathamile – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">07.30 am</td>
+                        </tr>
+                        <!-- Traveller Muttam -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">26 Seater Traveller<br><span class="text-xs text-gray-500">KL46N2849</span></td>
+                            <td class="p-4">Muttam</td>
+                            <td class="p-4">HMT Junction – Thrikkakara – Model Engg. College – NGO Quarters – Kakkanad – Pallikkara – SNGCE</td>
+                            <td class="p-4 font-semibold text-gray-800">7:20 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 2: College Bus Fee Structure -->
+        <div class="bg-white rounded-xl shadow-xl border border-[#1A2E6B]/15 overflow-hidden">
+            <div class="bg-[#1A2E6B] px-6 py-4">
+                <h2 class="text-white font-semibold text-base uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-indian-rupee-sign"></i> College Bus Fare Structure (AY-2026-2027)
+                </h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-gray-100 text-[#1A2E6B] border-b border-gray-200 text-xs uppercase tracking-wider">
+                            <th class="p-4 font-semibold">Sl. No.</th>
+                            <th class="p-4 font-semibold">Bus No.</th>
+                            <th class="p-4 font-semibold">Starting point (Zone)</th>
+                            <th class="p-4 font-semibold">Fare stage</th>
+                            <th class="p-4 font-semibold">Instalment amount (4 instalments)</th>
+                            <th class="p-4 font-semibold">Consolidated bus fee for next semester</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700">
+                        <!-- Sl 1 | Bus 1 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">1</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">1</td>
+                            <td class="p-4" rowspan="6">Elamkunnapuzha</td>
+                            <td class="p-4 font-medium">Elamkunnapuzha</td>
+                            <td class="p-4">₹ 5,346</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 17,820</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium">High Court</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium">Palarivattom JNS</td><td class="p-4">₹ 4,158</td><td class="p-4 font-semibold text-gray-800">₹ 13,860</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium">Kakkanad</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium">Vikasavani</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium text-[#1A2E6B]">1</td><td class="p-4 font-medium">Pallikkara</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 2 | Bus 3 -->
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                            <td class="p-4 font-medium text-[#1A2E6B]">2</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">3</td>
+                            <td class="p-4" rowspan="6">N. Paravoor</td>
+                            <td class="p-4 font-medium">North Paravur</td>
+                            <td class="p-4">₹ 5,346</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 17,820</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">2</td><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium">Mannam</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">2</td><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium">Karumalloor</td><td class="p-4">₹ 4,158</td><td class="p-4 font-semibold text-gray-800">₹ 13,860</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">2</td><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium">Aluva Bypass</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">2</td><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium">Choondy (A)</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50 border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">2</td><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium">Kizhakkambalam</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 3 | Bus 4 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">3</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">4</td>
+                            <td class="p-4" rowspan="6">Kothamangalam</td>
+                            <td class="p-4 font-medium">Kothamangalam</td>
+                            <td class="p-4">₹ 5,346</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 17,820</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium">Kottapady</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium">Odakkaly</td><td class="p-4">₹ 3,762</td><td class="p-4 font-semibold text-gray-800">₹ 12,540</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium">Kuruppampady</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium">Perumbavoor BOC</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">3</td><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium">Arackappady</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 4 | Bus 5 -->
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                            <td class="p-4 font-medium text-[#1A2E6B]">4</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">5</td>
+                            <td class="p-4" rowspan="7">Thalayolaparambu</td>
+                            <td class="p-4 font-medium">Thalayolaparamb</td>
+                            <td class="p-4">₹ 5,742</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 19,140</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium">Vadakara</td><td class="p-4">₹ 5,346</td><td class="p-4 font-semibold text-gray-800">₹ 17,820</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium">Arayankav</td><td class="p-4">₹ 4,950</td><td class="p-4 font-semibold text-gray-800">₹ 16,500</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium">Kanjiramattom</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium">Mulanthuruthy</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium">Thiruvankulam</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50 border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">4</td><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium">Choondy</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 5 | Bus 6 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">5</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">6</td>
+                            <td class="p-4" rowspan="6">Thodupuzha</td>
+                            <td class="p-4 font-medium">Thodupuzha</td>
+                            <td class="p-4">₹ 5,346</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 17,820</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium">Madakkathanam</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium">Vazhakulam</td><td class="p-4">₹ 4,158</td><td class="p-4 font-semibold text-gray-800">₹ 13,860</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium">Muvattupuzha P O Jn. & Mkt.</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium">Valakam</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">5</td><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium">Thonnikka</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 6 | Bus 7 -->
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                            <td class="p-4 font-medium text-[#1A2E6B]">6</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">7</td>
+                            <td class="p-4" rowspan="7">Vaikkom</td>
+                            <td class="p-4 font-medium">Vaikkom</td>
+                            <td class="p-4">₹ 5,346</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 17,820</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium">Toll</td><td class="p-4">₹ 4,950</td><td class="p-4 font-semibold text-gray-800">₹ 16,500</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium">Poothotta</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium">South Paravur</td><td class="p-4">₹ 4,356</td><td class="p-4 font-semibold text-gray-800">₹ 14,520</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium">Puthiakavu</td><td class="p-4">₹ 4,158</td><td class="p-4 font-semibold text-gray-800">₹ 13,860</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium">Thiruvankulam</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50 border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">6</td><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium">Choondy</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 7 | Bus 8 & 9 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">7</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td>
+                            <td class="p-4" rowspan="9">Chullikkal</td>
+                            <td class="p-4 font-medium">Chullikkal</td>
+                            <td class="p-4">₹ 5,544</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 18,480</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">Thoppumpady</td><td class="p-4">₹ 5,148</td><td class="p-4 font-semibold text-gray-800">₹ 17,160</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">Thevara Juntion</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">Kundannoor</td><td class="p-4">₹ 4,158</td><td class="p-4 font-semibold text-gray-800">₹ 13,860</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">Vyttila</td><td class="p-4">₹ 3,960</td><td class="p-4 font-semibold text-gray-800">₹ 13,200</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">Pettah</td><td class="p-4">₹ 3,762</td><td class="p-4 font-semibold text-gray-800">₹ 12,540</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">SN Junction</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">FACT, Kuzhikkad</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">7</td><td class="p-4 font-medium text-[#1A2E6B]">8 & 9</td><td class="p-4 font-medium">Kaninad</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 8 | Bus 9 & 14 -->
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                            <td class="p-4 font-medium text-[#1A2E6B]">8</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">9 & 14</td>
+                            <td class="p-4" rowspan="3">Aluva</td>
+                            <td class="p-4 font-medium">Arogyalayam</td>
+                            <td class="p-4">₹ 3,366</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 11,220</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">8</td><td class="p-4 font-medium text-[#1A2E6B]">9 & 14</td><td class="p-4 font-medium">Choondy (A)</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50 border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">8</td><td class="p-4 font-medium text-[#1A2E6B]">9 & 14</td><td class="p-4 font-medium">Kizhakkambalam</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 9 | Bus 10 & 12 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">9</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">10 & 12</td>
+                            <td class="p-4" rowspan="4">Kundannoor</td>
+                            <td class="p-4 font-medium">Kundannoor</td>
+                            <td class="p-4">₹ 4,158</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 13,860</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">9</td><td class="p-4 font-medium text-[#1A2E6B]">10 & 12</td><td class="p-4 font-medium">Khizhakkekotta</td><td class="p-4">₹ 3,960</td><td class="p-4 font-semibold text-gray-800">₹ 13,200</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">9</td><td class="p-4 font-medium text-[#1A2E6B]">10 & 12</td><td class="p-4 font-medium">FACT, Kuzhikkad</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">9</td><td class="p-4 font-medium text-[#1A2E6B]">10 & 12</td><td class="p-4 font-medium">Kaninad</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 10 | Bus 11 & 13 Traveller -->
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                            <td class="p-4 font-medium text-[#1A2E6B]">10</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">11 & 13 Traveller</td>
+                            <td class="p-4" rowspan="4">Kottapuram</td>
+                            <td class="p-4 font-medium">Kottapuram</td>
+                            <td class="p-4">₹ 4,158</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 13,860</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">10</td><td class="p-4 font-medium text-[#1A2E6B]">11 & 13 Traveller</td><td class="p-4 font-medium">Aluva Bypass</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">10</td><td class="p-4 font-medium text-[#1A2E6B]">11 & 13 Traveller</td><td class="p-4 font-medium">Choondy (A)</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50 border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">10</td><td class="p-4 font-medium text-[#1A2E6B]">11 & 13 Traveller</td><td class="p-4 font-medium">Kizhakkambalam</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 11 | Bus 12 & 15 Traveller -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">11</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">12 & 15 Traveller</td>
+                            <td class="p-4" rowspan="4">Muttam</td>
+                            <td class="p-4 font-medium">Muttam</td>
+                            <td class="p-4">₹ 3,060</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 10,200</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">11</td><td class="p-4 font-medium text-[#1A2E6B]">12 & 15 Traveller</td><td class="p-4 font-medium">Kalamassery</td><td class="p-4">₹ 3,762</td><td class="p-4 font-semibold text-gray-800">₹ 12,540</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">11</td><td class="p-4 font-medium text-[#1A2E6B]">12 & 15 Traveller</td><td class="p-4 font-medium">Kagarapady</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">11</td><td class="p-4 font-medium text-[#1A2E6B]">12 & 15 Traveller</td><td class="p-4 font-medium">Pokkattupady</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+
+                        <!-- Sl 12 | Bus 13 & 16 Traveller -->
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                            <td class="p-4 font-medium text-[#1A2E6B]">12</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">13 & 16 Traveller</td>
+                            <td class="p-4" rowspan="3">NGO Quarters</td>
+                            <td class="p-4 font-medium">Palarivattom JNS</td>
+                            <td class="p-4">₹ 4,158</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 13,860</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">12</td><td class="p-4 font-medium text-[#1A2E6B]">13 & 16 Traveller</td><td class="p-4 font-medium">Kakkanad</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50 border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">12</td><td class="p-4 font-medium text-[#1A2E6B]">13 & 16 Traveller</td><td class="p-4 font-medium">Vikasavani</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+
+                        <!-- Sl 13 | Bus 14 & 17 Traveller -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">13</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">14 & 17 Traveller</td>
+                            <td class="p-4" rowspan="4">Angamaly</td>
+                            <td class="p-4 font-medium">Angamaly</td>
+                            <td class="p-4">₹ 4,752</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 15,840</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">13</td><td class="p-4 font-medium text-[#1A2E6B]">14 & 17 Traveller</td><td class="p-4 font-medium">Kalady</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">13</td><td class="p-4 font-medium text-[#1A2E6B]">14 & 17 Traveller</td><td class="p-4 font-medium">Perumbavoor Temple Jn</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">13</td><td class="p-4 font-medium text-[#1A2E6B]">14 & 17 Traveller</td><td class="p-4 font-medium">Arackappady</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 14 | Bus 15 & 18 Traveller -->
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                            <td class="p-4 font-medium text-[#1A2E6B]">14</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">15 & 18 Traveller</td>
+                            <td class="p-4" rowspan="7">Koothattukulam</td>
+                            <td class="p-4 font-medium">Koothattukulam</td>
+                            <td class="p-4">₹ 5,346</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 17,820</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">14</td><td class="p-4 font-medium text-[#1A2E6B]">15 & 18 Traveller</td><td class="p-4 font-medium">Kakkor</td><td class="p-4">₹ 4,752</td><td class="p-4 font-semibold text-gray-800">₹ 15,840</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">14</td><td class="p-4 font-medium text-[#1A2E6B]">15 & 18 Traveller</td><td class="p-4 font-medium">Onakloor</td><td class="p-4">₹ 4,356</td><td class="p-4 font-semibold text-gray-800">₹ 14,520</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">14</td><td class="p-4 font-medium text-[#1A2E6B]">15 & 18 Traveller</td><td class="p-4 font-medium">Piravom</td><td class="p-4">₹ 4,158</td><td class="p-4 font-semibold text-gray-800">₹ 13,860</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">14</td><td class="p-4 font-medium text-[#1A2E6B]">15 & 18 Traveller</td><td class="p-4 font-medium">Nechooor</td><td class="p-4">₹ 3,762</td><td class="p-4 font-semibold text-gray-800">₹ 12,540</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50"><td class="p-4 font-medium text-[#1A2E6B]">14</td><td class="p-4 font-medium text-[#1A2E6B]">15 & 18 Traveller</td><td class="p-4 font-medium">Ezhakkaranad</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition bg-gray-50/50 border-b-2 border-indigo-200"><td class="p-4 font-medium text-[#1A2E6B]">14</td><td class="p-4 font-medium text-[#1A2E6B]">15 & 18 Traveller</td><td class="p-4 font-medium">Choondy</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+
+                        <!-- Sl 15 | Bus 16 & 19 Pvt. Bus -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 font-medium text-[#1A2E6B]">15</td>
+                            <td class="p-4 font-medium text-[#1A2E6B]">16 & 19 Pvt. Bus</td>
+                            <td class="p-4" rowspan="5">St.Alberts</td>
+                            <td class="p-4 font-medium">Kaloor JNS</td>
+                            <td class="p-4">₹ 4,158</td>
+                            <td class="p-4 font-semibold text-gray-800">₹ 13,860</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">15</td><td class="p-4 font-medium text-[#1A2E6B]">16 & 19 Pvt. Bus</td><td class="p-4 font-medium">Edappally</td><td class="p-4">₹ 3,762</td><td class="p-4 font-semibold text-gray-800">₹ 12,540</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">16</td><td class="p-4 font-medium text-[#1A2E6B]">16 & 19 Pvt. Bus</td><td class="p-4 font-medium">Aluva Bypass</td><td class="p-4">₹ 3,366</td><td class="p-4 font-semibold text-gray-800">₹ 11,220</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">16</td><td class="p-4 font-medium text-[#1A2E6B]">16 & 19 Pvt. Bus</td><td class="p-4 font-medium">Choondy (A)</td><td class="p-4">₹ 2,574</td><td class="p-4 font-semibold text-gray-800">₹ 8,580</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-medium text-[#1A2E6B]">16</td><td class="p-4 font-medium text-[#1A2E6B]">16 & 19 Pvt. Bus</td><td class="p-4 font-medium">Kizhakkambalam</td><td class="p-4">₹ 2,178</td><td class="p-4 font-semibold text-gray-800">₹ 7,260</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-[#1A2E6B] text-white text-center py-4 text-xs tracking-wide">
+        &copy; 2026 Smart College Bus Pass Management System. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

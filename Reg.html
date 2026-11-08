@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart College Bus Pass Management System - Register</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#F4F6F9] font-sans m-0 p-0 min-h-screen flex flex-col justify-between">
+
+    <!-- Header with Emblem on Left and Home Button on Right -->
+    <header class="w-full bg-[#1A2E6B] px-6 py-4 flex justify-between items-center shadow-md">
+        <!-- Emblem / Logo on Left -->
+        <div class="flex items-center space-x-3">
+          
+                <img src="Emblem.jpg" alt="SNGCE Emblem" class="h-10 w-auto object-contain rounded">
+                <span class="text-white font-bold text-sm tracking-wider hidden sm:inline">SNGCE BUS PASS</span>
+            </a>
+        </div>
+
+        <!-- Home Button on Right -->
+        <a href="index.html" class="border border-white/40 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white hover:text-[#1A2E6B] transition shadow-sm">
+            Home
+        </a>
+    </header>
+
+    <!-- Main Content Area with Centered Registration Card -->
+    <main class="flex-grow flex items-center justify-center px-4 py-12">
+        <div class="max-w-2xl w-full bg-white p-8 sm:p-10 rounded-xl shadow-xl border border-[#1A2E6B]/15">
+            
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-[#1A2E6B]">Register New Account</h1>
+                <p class="text-gray-500 text-xs tracking-wider uppercase mt-1">Smart College Bus Pass Management System</p>
+            </div>
+            
+           <form action="register_process.php" method="POST" enctype="multipart/form-data" onsubmit="validateAndSubmit(event)" class="space-y-6"><!-- Section: Account Role -->
+                <div>
+                    <h3 class="text-sm font-semibold text-[#1A2E6B] uppercase tracking-wider mb-4 border-b pb-2">Account Type</h3>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Select Role</label>
+                        <select id="roleSelect" name="role" required onchange="handleRoleChange()"
+                            class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="driver">Driver</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Hidden Container for Rest of the Form Fields (Revealed After Role Selection) -->
+                <div id="formContentContainer" class="hidden space-y-6">
+
+                    <!-- Section: Personal Information -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-[#1A2E6B] uppercase tracking-wider mb-4 border-b pb-2">Personal Information</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            
+                            <!-- Full Name -->
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Full Name</label>
+                                <input type="text" name="full_name" id="fullname" " 
+                                    onkeypress="return onlyLetters(event)"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                            </div>
+
+                            <!-- Username -->
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Username </label>
+                                <input type="text" name="username" id="username" " 
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                            </div>
+
+
+                            <!-- Email -->
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Email Address </label>
+                                <input type="email" name="email" id="email"" 
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Phone Number </label>
+                                <input type="tel" name="phone" id="phone" maxlength="10" 
+                                    onkeypress="return onlyDigits(event)"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                            </div>
+
+                           
+
+                        </div>
+                    </div>
+
+                    <!-- Section: Institutional/Faculty & Transport Details -->
+                    <div>
+                        <div id="transportSection">
+                        <h3 class="text-sm font-semibold text-[#1A2E6B] uppercase tracking-wider mb-4 border-b pb-2">Institutional & Transport Details</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            
+                            <!-- Student Only Fields: Course & Batch -->
+                            <div id="studentField1" class="hidden">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Course</label>
+                                <select name="course" id="courseSelect" onchange="handleCourseChange()"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <option value="" disabled selected>Select course</option>
+                                    <option value="civil">Civil Engineering</option>
+                                    <option value="mechanical">Mechanical Engineering</option>
+                                    <option value="electrical">Electrical Engineering</option>
+                                    <option value="cse">Computer Science Engineering (CSE)</option>
+                                    <option value="naval">Naval Architecture</option>
+                                    <option value="mca">MCA</option>
+                                    <option value="mba">MBA</option>
+                                    <option value="integrated-mca">Integrated MCA</option>
+                                </select>
+                            </div>
+
+                            <div id="studentField2" class="hidden">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Batch / Year</label>
+                                <select name="batch" id="batchSelect"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <option value="" disabled selected>Select batch</option>
+                                </select>
+                            </div>
+
+                            <!-- Faculty Only Fields: Designation (Dropdown) -->
+                            <div id="facultyField1" class="hidden">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Designation</label>
+                                <select name="designation" id="designationSelect" onchange="handleDesignationChange()"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <option value="" disabled selected>Select designation</option>
+                                    <option value="teaching">Teaching</option>
+                                    <option value="non-teaching">Non-Teaching</option>
+                                </select>
+                            </div>
+
+                            <!-- Department (Shown only if Teaching Designation, Dropdown: BTech, MCA, MBA) -->
+                            <div id="departmentField" class="hidden">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Department</label>
+                                <select name="department" id="departmentSelect"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <option value="" disabled selected>Select Department</option>
+                                   <option value="civil">Civil Engineering</option>
+                                    <option value="mechanical">Mechanical Engineering</option>
+                                    <option value="electrical">Electrical Engineering</option>
+                                    <option value="cse">Computer Science Engineering (CSE)</option>
+                                    <option value="naval">Naval Architecture</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="administrative">Administrative</option>
+
+                                </select>
+                            </div>
+
+                            <!-- Bus Number -->
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Bus Number & Reg. No.</label>
+                                <select name="bus_number" id="busNumberSelect" onchange="handleBusNumberChange()"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <option value="" disabled selected>Select Bus Number</option>
+                                    <option value="Bus 1 (KL40E6327)">Bus 1 - KL40E6327</option>
+                                    <option value="Bus 3 (KL40J1150)">Bus 3 - KL40J1150</option>
+                                    <option value="Bus 4 (KL-40-J-1978)">Bus 4 - KL-40-J-1978</option>
+                                    <option value="Bus 5 (KL17B6354)">Bus 5 - KL17B6354</option>
+                                    <option value="Bus 6 (KL40J2946)">Bus 6 - KL40J2946</option>
+                                    <option value="Bus 7 (KL-40-5927)">Bus 7 - KL-40-5927</option>
+                                    <option value="Bus 8 (KL-40-6311)">Bus 8 - KL-40-6311</option>
+                                    <option value="Bus 9 (KL40A4058)">Bus 9 - KL40A4058</option>
+                                    <option value="Bus 12 (KL17AA0478)">Bus 12 - KL17AA0478</option>
+                                    <option value="Bus 14 (KL17AA0443)">Bus 14 - KL17AA0443</option>
+                                    <option value="49 Seater Tourist Bus - KL67B2270">49 Seater Tourist Bus - KL67B2270</option>
+                                    <option value="26 Seater Tempo Traveller - KL667463">26 Seater Tempo Traveller (Paravur Kavala) - KL667463</option>
+                                    <option value="26 Seater Tempo Traveller  - KL33F9504">26 Seater Tempo Traveller (Kottappady) - KL33F9504</option>
+                                    <option value="26 Seater Tempo Traveller  - KL35D7746">26 Seater Tempo Traveller (Koothattukulam) - KL35D7746</option>
+                                    <option value="26 Seater Tempo Traveller  - KL46N2849">26 Seater Tempo Traveller (Muttam) - KL46N2849</option>
+                                </select>
+                            </div>
+
+                            <!-- Boarding Point -->
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Boarding Point</label>
+                                <select name="boarding_point" id="boardingPointSelect"
+                                    class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <option value="" disabled selected>Select Bus Number First</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                   <!-- Section: Emergency Contact & Address Details -->
+                    <div id="emergencySection">
+                        <div id="guardianFieldsContainer">
+                            <h3 class="text-sm font-semibold text-[#1A2E6B] uppercase tracking-wider mb-4 border-b pb-2">Emergency Contact & Address Details</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                
+                                <!-- Guardian Name -->
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">Guardian Name</label>
+                                    <input type="text" name="guardian_name" id="guardian_name"  
+                                        onkeypress="return onlyLetters(event)"
+                                        class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                </div>
+
+                                <!-- Guardian Relationship -->
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">Guardian Relationship</label>
+                                    <input type="text" name="guardian_relationship" id="guardian_relationship"  
+                                        onkeypress="return onlyLetters(event)"
+                                        class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                </div>
+
+                                <!-- Guardian Phone Number -->
+                                <div class="sm:col-span-2">
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">Guardian Phone Number </label>
+                                    <input type="tel" name="guardian_phone" id="guardian_phone"  maxlength="10" 
+                                        onkeypress="return onlyDigits(event)"
+                                        class="w-full px-4 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section: Driver Specific Documents -->
+                    <div id="driverDocSection" class="hidden">
+                        <h3 class="text-sm font-semibold text-[#1A2E6B] uppercase tracking-wider mb-4 border-b pb-2">Driver Verification Documents</h3>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Driving License Upload (PDF / Image)</label>
+                            <input type="file" name="driving_license" id="driving_license" accept="image/*,.pdf" 
+                                class="w-full px-3 py-2 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-500 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-[#1A2E6B] file:text-white hover:file:bg-[#142353] transition">
+                        </div>
+                    </div>
+
+                    <!-- Section: Security & Profile Image -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-[#1A2E6B] uppercase tracking-wider mb-4 border-b pb-2">Security & Verification</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            
+                            <!-- Profile Image Upload -->
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Passport Size Photograph</label>
+                                <input type="file" name="image" id="image" accept="image/*" 
+                                    class="w-full px-3 py-2 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-500 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-[#1A2E6B] file:text-white hover:file:bg-[#142353] transition">
+                            </div>
+
+                            <!-- Password -->
+                            <div class="relative">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Password </label>
+                                <div class="relative flex items-center">
+                                    <input type="password" id="password" name="password" placeholder="Create password" 
+                                        class="w-full pl-4 pr-12 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <button type="button" onclick="togglePassword('password', 'eyeIcon1')" class="absolute right-4 text-gray-400 hover:text-[#1A2E6B] focus:outline-none">
+                                        <i id="eyeIcon1" class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Confirm Password -->
+                            <div class="relative">
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Confirm Password</label>
+                                <div class="relative flex items-center">
+                                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" 
+                                        class="w-full pl-4 pr-12 py-3 bg-[#F4F6F9] border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1A2E6B] focus:ring-1 focus:ring-[#1A2E6B] transition text-sm">
+                                    <button type="button" onclick="togglePassword('confirm_password', 'eyeIcon2')" class="absolute right-4 text-gray-400 hover:text-[#1A2E6B] focus:outline-none">
+                                        <i id="eyeIcon2" class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Submit Button (Centered & Medium Size) -->
+                    <div class="pt-4 flex justify-center">
+                        <button type="submit" class="bg-[#1A2E6B] text-white px-8 py-2.5 rounded-lg font-semibold hover:bg-[#142353] transition shadow-md text-sm tracking-wide">
+                            Register Account
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Login Redirect Link -->
+                <div class="text-center pt-2">
+                    <p class="text-xs text-gray-600">Already have an account? <a href="Login.html" class="text-[#1A2E6B] font-semibold hover:underline">Login here</a></p>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-[#1A2E6B] text-white text-center py-4 text-xs tracking-wide">
+        &copy; 2026 Smart College Bus Pass Management System. All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript for Validation & Dynamic Logic -->
+    <script>
+        // Mock existing records database for uniqueness validation
+        const existingRecords = {
+            usernames: ["admin", "faculty1", "student1"],
+            emails: ["admin@sngce.ac.in", "faculty@sngce.ac.in", "student@sngce.ac.in"],
+            phones: ["9876543210", "8765432109"]
+        };
+
+        // Mapping of Bus Numbers to their respective stops/boarding points
+        const busData = {
+            "Bus 1 (KL40E6327)": {
+                stops: ["Elamkunnapuzha", "High court", "Kaloor", "Palarivattom", "Padamughal", "NGO Quarters", "Kakkanad", "Pallikkara", "SNGCE"]
+            },
+            "Bus 3 (KL40J1150)": {
+                stops: ["North Paravur", "Mannan", "Karumalloor", "U C Collage", "Kizhakkambalam", "Pazhamthottam", "SNGCE"]
+            },
+            "Bus 4 (KL-40-J-1978)": {
+                stops: ["Angamaly", "Angamaly jn", "Vengoor", "Kalady", "Vallom", "Perumbavoor", "SNDP Junction", "SNGCE"]
+            },
+            "Bus 5 (KL17B6354)": {
+                stops: ["Thalayolaparambu", "Kanjiramattom", "Mulanthuruthy Pallithazham", "Vattakunnu", "Eruveli", "Chottanikkara", "Thiruvankulam", "Vadavucode", "SNGCE"]
+            },
+            "Bus 6 (KL40J2946)": {
+                stops: ["Thodupuzha", "Vazhakkulam", "Muvattupuzha", "Valakom", "Kolenchery", "SNGCE"]
+            },
+            "Bus 7 (KL-40-5927)": {
+                stops: ["Vaikom", "Poothotta", "Nadakkav", "Puthiakavu", "Kureekad", "Thiruvankulam", "Choondi", "Pathamile", "SNGCE"]
+            },
+            "Bus 8 (KL-40-6311)": {
+                stops: ["Palluruthy", "Aroor Church", "Kumbalam", "Marad", "Khizhakkekotta", "Karingachira", "Hill Palace", "Chithrappuzha", "Karimugal", "Kaninad", "SNGCE"]
+            },
+            "Bus 9 (KL40A4058)": {
+                stops: ["Chullikkal", "BOT", "Pettah", "S N Junction", "Irumpanam", "Karimugal", "Kaninad", "SNGCE"]
+            },
+            "Bus 12 (KL17AA0478)": {
+                stops: ["St. Alberts College", "Kaloor", "Palarivattom", "Edappally", "Kalamassery", "HMT Junction", "Vallathol", "Thevakkal", "Pookkattupady", "Kizhakkambalam", "SNGCE"]
+            },
+            "Bus 14 (KL17AA0443)": {
+                stops: ["Aluva Arogyalayam", "Cochin Bank", "Choondy", "Pookkaattupadi", "Kizhakkambalam", "Pazhamthottam", "SNGCE"]
+            },
+            "49 Seater Tourist Bus - KL67B2270": {
+                stops: ["Kadavanthra", "Vyttila", "Bypass", "Mini Bypass", "Puthiakave", "Kuzhikkade", "Thiruvankulam", "Pathamile", "SNGCE"]
+            },
+            "26 Seater Tempo Traveller - KL667463": {
+                stops: ["Paravur Kavala", "Post Office", "Pump junction", "SOS", "Pookkaattupadi", "Kizhakkambalam", "Pazhamthottam", "SNGCE"]
+            },
+            "26 Seater Tempo Traveller  - KL33F9504": {
+                stops: ["Kottappady", "Odakkaly", "Kuruppampady", "Perumbavoor BOC", "SNGCE"]
+            },
+            "26 Seater Tempo Traveller  - KL35D7746": {
+                stops: ["Koothattukulam", "Thirumaradi", "Anjalpetti", "Onakloor", "Piravom", "Kakkad", "Choondi", "Pathamile", "SNGCE"]
+            },
+            "26 Seater Tempo Traveller  - KL46N2849": {
+                stops: ["Muttam", "HMT Junction", "Thrikkakara", "Model Engg. College", "NGO Quarters", "Kakkanad", "Pallikkara", "SNGCE"]
+            }
+        };
+
+        function handleBusNumberChange() {
+            const busNumber = document.getElementById('busNumberSelect').value;
+            const boardingPointSelect = document.getElementById('boardingPointSelect');
+
+            boardingPointSelect.innerHTML = '<option value="" disabled selected>Select boarding point</option>';
+
+            if (busData[busNumber]) {
+                busData[busNumber].stops.forEach(stop => {
+                    const opt = document.createElement('option');
+                    opt.value = stop;
+                    opt.textContent = stop;
+                    boardingPointSelect.appendChild(opt);
+                });
+            }
+        }
+
+        // Restrict keypress to letters and spaces only
+        function onlyLetters(e) {
+            const charCode = e.charCode ? e.charCode : e.keyCode;
+            if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode === 32) {
+                return true;
+            }
+            return false;
+        }
+
+        // Restrict keypress to digits only
+        function onlyDigits(e) {
+            const charCode = e.charCode ? e.charCode : e.keyCode;
+            if (charCode >= 48 && charCode <= 57) {
+                return true;
+            }
+            return false;
+        }
+
+     async function validateAndSubmit(event) {
+            event.preventDefault(); // Stops the form from submitting instantly
+
+            const nameRegex = /^[A-Za-z\s]+$/;
+            const role = document.getElementById('roleSelect').value; // Role edukkuka
+            const fullname = document.getElementById('fullname').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            if (!nameRegex.test(fullname)) {
+                alert("Full Name should contain letters only.");
+                document.getElementById('fullname').focus();
+                return;
+            }
+
+            // Faculty allaankil mathram guardian validations check cheyyuka
+            if (role === 'student') {
+                const guardianName = document.getElementById('guardian_name').value.trim();
+                const guardianRelation = document.getElementById('guardian_relationship').value.trim();
+                const guardianPhone = document.getElementById('guardian_phone').value.trim();
+
+                if (!nameRegex.test(guardianName)) {
+                    alert("Guardian Name should contain letters only.");
+                    document.getElementById('guardian_name').focus();
+                    return;
+                }
+                if (!nameRegex.test(guardianRelation)) {
+                    alert("Guardian Relationship should contain letters only.");
+                    document.getElementById('guardian_relationship').focus();
+                    return;
+                }
+
+                const phoneRegex = /^\d{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert("Phone Number must be exactly 10 digits.");
+                    document.getElementById('phone').focus();
+                    return;
+                }
+                if (!phoneRegex.test(guardianPhone)) {
+                    alert("Guardian Phone Number must be exactly 10 digits.");
+                    document.getElementById('guardian_phone').focus();
+                    return;
+                }
+                if (phone === guardianPhone) {
+                    alert("Guardian phone number and personal phone number should not be the same.");
+                    document.getElementById('guardian_phone').focus();
+                    return;
+                }
+            } else {
+                // Faculty-kku phone number validation mathram check cheyyuka
+                const phoneRegex = /^\d{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert("Phone Number must be exactly 10 digits.");
+                    document.getElementById('phone').focus();
+                    return;
+                }
+            }
+
+            // LIVE DATABASE CHECK FOR DUPLICATES
+            try {
+                const userRes = await fetch('check_duplicate.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `field=username&value=${encodeURIComponent(username)}`
+                });
+                if ((await userRes.text()).trim() === "EXISTS") {
+                    alert("This username is already taken. Please choose another.");
+                    document.getElementById('username').focus();
+                    return;
+                }
+
+                const emailRes = await fetch('check_duplicate.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `field=email&value=${encodeURIComponent(email)}`
+                });
+                if ((await emailRes.text()).trim() === "EXISTS") {
+                    alert("This email address is already registered.");
+                    document.getElementById('email').focus();
+                    return;
+                }
+
+                const phoneRes = await fetch('check_duplicate.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `field=phone&value=${encodeURIComponent(phone)}`
+                });
+                if ((await phoneRes.text()).trim() === "EXISTS") {
+                    alert("This phone number is already registered.");
+                    document.getElementById('phone').focus();
+                    return;
+                }
+
+            } catch (error) {
+                console.error("Database check error:", error);
+                alert("Could not verify details with the database. Please try again.");
+                return;
+            }
+
+            // Password checks
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                document.getElementById('password').focus();
+                return;
+            }
+            const hasLower = /[a-z]/.test(password);
+            const hasUpper = /[A-Z]/.test(password);
+            const hasDigit = /\d/.test(password);
+            const hasSpecial = /[\W_]/.test(password);
+
+            if (!hasLower || !hasUpper || !hasDigit || !hasSpecial) {
+                alert("Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+                document.getElementById('password').focus();
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Password and confirm password should be same.");
+                document.getElementById('confirm_password').focus();
+                return;
+            }
+
+            // If all checks pass successfully, manually submit the form to PHP
+            event.target.submit();
+        }
+      function handleRoleChange() {
+    const role = document.getElementById('roleSelect').value;
+    const container = document.getElementById('formContentContainer');
+
+    if (role) {
+        container.classList.remove('hidden');
+    }
+
+    const studentField1 = document.getElementById('studentField1');
+    const studentField2 = document.getElementById('studentField2');
+    const courseSelect = document.getElementById('courseSelect');
+    const batchSelect = document.getElementById('batchSelect');
+    const facultyField1 = document.getElementById('facultyField1');
+    const designationSelect = document.getElementById('designationSelect');
+    const departmentField = document.getElementById('departmentField');
+    const departmentSelect = document.getElementById('departmentSelect');
+
+    const transportSection = document.getElementById('transportSection');
+    const emergencySection = document.getElementById('emergencySection');
+    const guardianFieldsContainer = document.getElementById('guardianFieldsContainer');
+    const driverDocSection = document.getElementById('driverDocSection');
+
+    // Common fields required by default
+    const commonInputs = ['fullname', 'username', 'email', 'phone', 'image', 'password', 'confirm_password'];
+    commonInputs.forEach(id => {
+        document.getElementById(id).setAttribute('required', 'true');
+    });
+
+    if (role === 'driver') {
+        // Hide transport and emergency sections completely for driver
+        transportSection.classList.add('hidden');
+        emergencySection.classList.add('hidden');
+
+        document.getElementById('busNumberSelect').removeAttribute('required');
+        document.getElementById('boardingPointSelect').removeAttribute('required');
+        document.getElementById('guardian_name').removeAttribute('required');
+        document.getElementById('guardian_relationship').removeAttribute('required');
+        document.getElementById('guardian_phone').removeAttribute('required');
+
+        studentField1.classList.add('hidden');
+        studentField2.classList.add('hidden');
+        facultyField1.classList.add('hidden');
+        departmentField.classList.add('hidden');
+        courseSelect.removeAttribute('required');
+        batchSelect.removeAttribute('required');
+        designationSelect.removeAttribute('required');
+        departmentSelect.removeAttribute('required');
+
+        // Show driver license upload section and make it required
+        driverDocSection.classList.remove('hidden');
+        document.getElementById('driving_license').setAttribute('required', 'true');
+
+    } else if (role === 'faculty') {
+        transportSection.classList.remove('hidden');
+        emergencySection.classList.remove('hidden');
+        
+        // Ensure bus section is visible for faculty, but hide guardian fields
+        document.getElementById('busNumberSelect').parentElement.classList.remove('hidden');
+        document.getElementById('boardingPointSelect').parentElement.parentElement.classList.remove('hidden');
+
+        guardianFieldsContainer.classList.add('hidden');
+        document.getElementById('guardian_name').removeAttribute('required');
+        document.getElementById('guardian_relationship').removeAttribute('required');
+        document.getElementById('guardian_phone').removeAttribute('required');
+
+        driverDocSection.classList.add('hidden');
+        document.getElementById('driving_license').removeAttribute('required');
+
+        document.getElementById('busNumberSelect').setAttribute('required', 'true');
+        document.getElementById('boardingPointSelect').setAttribute('required', 'true');
+
+        studentField1.classList.add('hidden');
+        studentField2.classList.add('hidden');
+        courseSelect.removeAttribute('required');
+        batchSelect.removeAttribute('required');
+
+        facultyField1.classList.remove('hidden');
+        designationSelect.setAttribute('required', 'true');
+
+        handleDesignationChange();
+
+    } else if (role === 'student') {
+        transportSection.classList.remove('hidden');
+        emergencySection.classList.remove('hidden');
+        
+        document.getElementById('busNumberSelect').parentElement.classList.remove('hidden');
+        document.getElementById('boardingPointSelect').parentElement.parentElement.classList.remove('hidden');
+
+        guardianFieldsContainer.classList.remove('hidden');
+        driverDocSection.classList.add('hidden');
+        document.getElementById('driving_license').removeAttribute('required');
+
+        document.getElementById('busNumberSelect').setAttribute('required', 'true');
+        document.getElementById('boardingPointSelect').setAttribute('required', 'true');
+        document.getElementById('guardian_name').setAttribute('required', 'true');
+        document.getElementById('guardian_relationship').setAttribute('required', 'true');
+        document.getElementById('guardian_phone').setAttribute('required', 'true');
+
+        studentField1.classList.remove('hidden');
+        studentField2.classList.remove('hidden');
+        courseSelect.setAttribute('required', 'true');
+        batchSelect.setAttribute('required', 'true');
+
+        facultyField1.classList.add('hidden');
+        designationSelect.removeAttribute('required');
+        departmentField.classList.add('hidden');
+        departmentSelect.removeAttribute('required');
+    }
+}
+ function handleCourseChange() {
+            const course = document.getElementById('courseSelect').value;
+            const batchSelect = document.getElementById('batchSelect');
+            
+            batchSelect.innerHTML = '<option value="" disabled selected>Select batch</option>';
+
+            let durationYears = 4; 
+            let pastYearsCount = 4; 
+
+            if (course === 'mca' || course === 'mba') {
+                durationYears = 2;
+                pastYearsCount = 2;
+            } else if (course === 'integrated-mca') {
+                durationYears = 5;
+                pastYearsCount = 5;
+            }
+
+            const currentYear = new Date().getFullYear();
+            for (let i = 0; i < pastYearsCount; i++) {
+                let startYear = currentYear - i;
+                let endYear = startYear + durationYears;
+                let batchString = `${startYear}-${endYear}`;
+
+                const opt = document.createElement('option');
+                opt.value = batchString;
+                opt.textContent = batchString;
+                batchSelect.appendChild(opt);
+            }
+        }
+       function handleDesignationChange() {
+    const designation = document.getElementById('designationSelect').value;
+    const departmentField = document.getElementById('departmentField');
+    const departmentSelect = document.getElementById('departmentSelect');
+    
+    const options = departmentSelect.options;
+
+    if (designation === 'teaching') {
+        departmentField.classList.remove('hidden');
+        departmentSelect.setAttribute('required', 'true');
+
+        // Teaching ആകുമ്പോൾ Administrative ഒഴിവാക്കി ബാക്കിയുള്ളവ കാണിക്കുക
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].value === 'administrative') {
+                options[i].style.display = 'none';
+            } else {
+                options[i].style.display = 'block';
+            }
+        }
+    } else if (designation === 'non-teaching') {
+        departmentField.classList.remove('hidden');
+        departmentSelect.setAttribute('required', 'true');
+
+        // Non-Teaching ആകുമ്പോൾ Administrative ഉൾപ്പെടെ എല്ലാ ഡിപ്പാർട്ട്മെന്റും കാണിക്കുക
+        for (let i = 0; i < options.length; i++) {
+            options[i].style.display = 'block';
+        }
+    } else {
+        departmentField.classList.add('hidden');
+        departmentSelect.removeAttribute('required');
+    }
+}
+
+        function togglePassword(fieldId, iconId) {
+            const passwordInput = document.getElementById(fieldId);
+            const eyeIcon = document.getElementById(iconId);
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+      
+
+    </script>
+</body>
+</html>

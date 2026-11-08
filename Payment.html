@@ -1,0 +1,157 @@
+<?php
+// ==========================================
+// BACKEND LOGIC: Handle Order Creation
+// ==========================================
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'create_order') {
+    require('vendor/autoload.php');
+    use Razorpay\Api\Api;
+
+    // Replace with your actual Razorpay API Keys
+    $keyId = 'YOUR_RAZORPAY_KEY_ID';
+    $keySecret = 'YOUR_RAZORPAY_KEY_SECRET';
+
+    $api = new Api($keyId, $keySecret);
+
+    $payment_type = $_POST['payment_type'] ?? 'fee'; 
+
+    if ($payment_type === 'urgent') {
+        // Fixed amount for urgent pass: ₹180 (180 * 100 = 18000 paise)
+        $amountInPaise = 180 * 100; 
+        $receiptId = 'urgent_pass_' . time();
+    } else {
+        // Consolidated fee or installment amount passed dynamically
+        $amountInPaise = intval($_POST['amount']) * 100; 
+        $receiptId = 'fee_payment_' . time();
+    }
+
+    $orderData = [
+        'receipt'         => $receiptId,
+        'amount'          => $amountInPaise,
+        'currency'        => 'INR',
+        'payment_capture' => 1 
+    ];
+
+    header('Content-Type: application/json');
+    try {
+        $razorpayOrder = $api->order->create($orderData);
+        echo json_encode([
+            'status'   => 'success',
+            'order_id' => $razorpayOrder['id'],
+            'amount'   => $amountInPaise,
+            'key'      => $keyId
+        ]);
+    } catch (Exception $e) {
+        echo json_encode([
+            'status' => 'error', 
+            'message' => $e->getMessage()
+        ]);
+    }
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel & Bus Pass Payment Portal</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 text-center">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Payment Portal</h2>
+        
+        <!-- Separate Action Buttons -->
+        <div class="space-y-4">
+            <!-- Fee Payment Button (Consolidated or Installment) -->
+            <button id="pay-fee-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded transition duration-200">
+                Fee Payment <span class="block text-xs font-normal text-blue-100">(Consolidated / Installment)</span>
+            </button>
+
+            <!-- Urgent Pass Payment Button -->
+            <button id="pay-urgent-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded transition duration-200">
+                Pay Urgent Pass <span class="block text-xs font-normal text-red-100">(Fixed ₹180)</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- FRONTEND JAVASCRIPT: Trigger Razorpay Modal -->
+    <!-- ========================================== -->
+    <script>
+        // 1. Handle Fee Payment (Consolidated or Installment Input)
+        document.getElementById('pay-fee-btn').onclick = function () {
+            let feeAmount = prompt("Enter the amount to pay (₹):");
+            if (feeAmount && !isNaN(feeAmount) && feeAmount > 0) {
+                startPayment('fee', feeAmount);
+            } else if (feeAmount !== null) {
+                alert("Please enter a valid amount.");
+            }
+        };
+
+        // 2. Handle Urgent Pass Payment (Fixed ₹180)
+        document.getElementById('pay-urgent-btn').onclick = function () {
+            if (confirm("Proceed to pay ₹180 for the Urgent Pass?")) {
+                startPayment('urgent', 180);
+            }
+        };
+
+        function startPayment(type, amount) {
+            let formData = new URLSearchParams();
+            formData.append('action', 'create_order');
+            formData.append('payment_type', type);
+            formData.append('amount', amount);
+
+            fetch(window.location.href, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData.toString()
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    var options = {
+                        "key": data.key,
+                        "amount": data.amount, 
+                        "currency": "INR",
+                        "name": "Hostel Hub",
+                        "description": type === 'urgent' ? "Urgent Pass Payment" : "Fee Payment (Consolidated/Installment)",
+                        "order_id": data.order_id, 
+                        "handler": function (response) {
+                            alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                            
+                            // Redirect to your verification script with payment type context
+                            window.location.href = "verify_payment.php?payment_id=" + response.razorpay_payment_id + 
+                                                   "&order_id=" + response.razorpay_order_id + 
+                                                   "&signature=" + response.razorpay_signature + 
+                                                   "&type=" + type;
+                        },
+                        "prefill": {
+                            "name": "Student Name", 
+                            "email": "student@college.edu",
+                            "contact": "9876543210"
+                        },
+                        "theme": {
+                            "color": type === 'urgent' ? "#dc2626" : "#2563eb"
+                        }
+                    };
+                    var rzp1 = new Razorpay(options);
+                    rzp1.open();
+                } else {
+                    alert("Error creating order: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Something went wrong. Please try again.");
+            });
+        }
+    </script>
+</body>
+</html>
