@@ -1,4 +1,4 @@
-# Smart College Bus Pass Management System with QR Code Verification 
+# Smart College Bus Pass Management System with QR Code Verification
 
 ## Abstract
 In modern educational institutions, efficient transportation management is crucial for ensuring smooth daily commutes for students, faculty members, and staff. Traditional college bus pass systems rely heavily on manual registration, physical receipt collection, paper passes, and visual verification by drivers.These conventional methods often lead to severe operational inefficiencies, including long waiting queues, vulnerability to pass forgery or duplication, lack of real-time passenger tracking, and delayed communication regarding fee payments or emergency schedules. To address these limitations, the Smart College Bus Pass Management System with QR Code Verification is proposed as a centralized, role-based web application designed to digitize, secure, and streamline the entire college bus pass lifecycle.
